@@ -1,4 +1,4 @@
-﻿using Exiled.API.Features;
+﻿﻿using Exiled.API.Features;
 using PlayerRoles;
 using PlayerRoles.PlayableScps.Scp096;
 using Exiled.Events.EventArgs.Player;
@@ -20,22 +20,14 @@ namespace SCP096ElevatorRestrict
             {
                 var scp096Role = ev.Player.ReferenceHub.roleManager.CurrentRole as Scp096Role;
 
-                if (scp096Role != null)
+                if (scp096Role != null && scp096Role.IsRageState(Scp096RageState.Enraged))
                 {
-                    bool isInRage = scp096Role.IsRageState(Scp096RageState.Enraged);
                     bool hasTargets = ev.Player.HasScp096Target();
 
-                    if (isInRage)
+                    if (hasTargets || !_config.PreventElevatorUseWhenNoTargets)
                     {
-                        if (hasTargets || !_config.PreventElevatorUseWhenNoTargets)
-                        {
-                            ev.IsAllowed = false;
-                            ev.Player.ShowHint(_config.HintText, _config.HintDisplayTime);
-                        }
-                        else
-                        {
-                            ev.IsAllowed = true;
-                        }
+                        ev.IsAllowed = false;
+                        ev.Player.ShowHint(_config.HintText, _config.HintDisplayTime);
                     }
                     else
                     {
