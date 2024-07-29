@@ -7,8 +7,8 @@
     <ProjectGuid>{B0985034-C1A8-4F8F-9C29-E84D875D6F9C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_096ElevatorRestrict</RootNamespace>
-    <AssemblyName>096ElevatorRestrict</AssemblyName>
+    <RootNamespace>SCP096ElevatorRestrict</RootNamespace>
+    <AssemblyName>SCP096ElevatorRestrict</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
